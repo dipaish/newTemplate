@@ -569,6 +569,3 @@ It is now time to apply what you have learnt, please find the exercise at the li
 
 >> To learn more
 
-
-
-{% include links.html %}
