@@ -7,406 +7,568 @@ permalink: index.html
 summary: These brief instructions will help you get started quickly with the theme. The other topics in this help provide additional information and detail about working with other aspects of this theme and Jekyll.
 ---
 
-## Build the Theme
+# Basics of HTML
 
-Follow these instructions to build the theme.
+## Tools for web development
+You need atleast some of the following tools to get started with web development. Depending on your development activity (frontend, backed or full stack), you will need some of the following tools. You will need at the minimum code or text editor and a browser.
 
-### 1. Download the theme
+- **Code or Text editors:** Sublime Text, Notepad++, ***Visual Studio Code***
+- **Front-End Frameworks:**  Bootstrap, Semantic-UI, Material UI
+- **Web Application Frameworks:**  Django, Angular, ReactJS
+- **Package Managers:**  NPM, Yarn, Material UI
+- **Git Clients:**  Github, Github Desktop
+- **Web Design & Prototyping Tools:**  Figma, Protooie, Framer
+- **Image Editing:**  Adobe Photoshop, Gimp
+![Development Environment](assets/images/devenvironment.png)
 
-First, download or clone the theme from the [Github repo](https://github.com/tomjoht/documentation-theme-jekyll). Most likely you won't be pulling in updates once you start customizing the theme, so downloading the theme (instead of cloning it) probably makes the most sense. In Github, click the **Clone or download** button, and then click **Download ZIP**.
+## Frontend
 
-### 2. Install Jekyll
+The frontend of a web page is the graphical user interface to create elements and interact with the functionalities as seen by the end user. The frontend is used to ensure the visual aspect of a website is functional. **HTML** is the fundamental component of the web that defines the structure of a web page. ALong with HTML other technologies such as **CSS and JavaScript** are used to implement the web page's appearances. The list of technologies commonly used to develop the frontend of a web page are as below: 
+- HTML
+- CSS
+- JavaScript
+- Frontend frameworks such as Vue.js, React Framework, Angular Framework
 
-If you've never installed or run a Jekyll site locally on your computer, follow these instructions to install Jekyll:
 
-* [Install Jekyll on Mac][mydoc_install_jekyll_on_mac]
-* [Install Jekyll on Windows][mydoc_install_jekyll_on_windows]
+## Backend
 
-### 3. Install Bundler
+Backend development is the development that happens on the server side to ensure all functionalities on the client side (frontend) of the website are functional. The features implemented at the back end are utilized via the fronted and may include activities such as storing and updating data, creating APIs and libraries. The list of technologies commonly used to develop the backend of a web page are as below: 
 
-In case you haven't installed Bundler, install it:
+- PHP
+- C++
+- Java
+- Python
+- Node.js
+- Backend frameworks such as Express, Django, Laravel, Spring etc. 
 
-```
-gem install bundler
-```
+## What is HTML?
+**Hypertext Markup Language (HTML)** is the standard markup language for documents that are designed to be displayed in a web browser. HTML is not a programming language. It is a markup language that tells browser how to structure a web page. HTML is made up of series of **elements** such as a piece of text, a paragraph, list, table, links or forms and is saved with an extension ```.HTML```. 
 
-You'll want [Bundler](http://bundler.io/) to make sure all the Ruby gems needed work well with your project. Bundler sorts out dependencies and installs missing gems or matches up gems with the right versions based on gem dependencies.
+***Lets write the following line of text in a text file and save it as*** **file1.html** 
 
-### 4. Option 1: Build the Theme (*without* the github-pages gem) {#option1}
-
-Use this option if you're not planning to publish your Jekyll site using [Github Pages](https://pages.github.com/).
-
-Bundler's Gemfile specifies how project dependencies are managed. Although this project includes a Gemfile, this theme doesn't have any dependencies beyond core Jekyll. The Gemfile is used to list gems needed for publishing on Github Pages. **If you're not planning to have Github Pages build your Jekyll project, delete these two files from the theme's root directory:**
-
-* Gemfile
-* Gemfile.lock
-
-If you've never run Jekyll on your computer (you can check with `jekyll --version`), you may need to install the jekyll gem:
-
-```
-gem install jekyll
-```
-
-Now run jekyll serve (first change directories (`cd`) to where you downloaded the project):
-
-```
-jekyll serve
+```html
+I am learning to develop web pages
 ```
 
-### 4. Option 2: Build the Theme (*with* the github-pages gem) {#option2}
-
-If you *are* in fact publishing on Github Pages, leave the Gemfile and Gemfile.lock files in the theme.The Gemfile tells Jekyll to use the github-pages gem. **However, note that you cannot use the normal `jekyll serve` command with this gem due to dependency conflicts between the latest version of Jekyll and Github Pages** (which are noted [briefly here](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)).
-
-You need Bundler to resolve these dependency conflicts. Use Bundler to install all the needed Ruby gems:
-
-```
-bundle update
+*** Now lets use the paragraph tag by modifying*** **file1.html**
+```html
+<p>I am learning to develop web pages.</p>
 ```
 
-Then *always* use this command to build Jekyll:
+>> Note: Tags in HTML are case-insensitive. This means they can be written in uppercase or lowercase. However, it is strongly recommended to write all tags in lowercase for consistency, readability, and other reasons.
 
+***A simple HTML document looks like this***
+```html
+    <!DOCTYPE html>
+    <html lang="en">
+     <head>
+      <title>My page</title>
+     </head>
+     <body>
+      <h1>My page</h1>
+      <p>This is a <a href="link">simple</a> Link</p>
+      <!-- this is a comment -->
+     </body>
+    </html>
+```   
+
+| Tag  | Description |
+| -------------| ------------- |
+| ``` <!DOCTYPE html> ```       | It is simply meant to act as links to a set of rules tht the HTML page had to follow. In current time, rarely anyone cares about it however it is recommended to start with the DOCTYPE.  |
+| ``` <html>  </html> ```        | This element simply wraps all the content on the entire page, and is sometimes known as the root element.  |
+| ``` <head></head> ```          | This element acts as a container for all the stuff (keywords, page description,css, character set declarations and more) you want to include on the HTML page, that isn't the content you are showing to your page's viewers.|
+| ``` <title></title> ```         | This element defines the title of your page, that appears in the browser tab and is used to describe the page when you bookmark/favorite it.  |
+| ``` <body></body> ```      | This element contains all the content that is displayed to web users such as text, images, videos or games.  |
+
+
+## HTML Elements
+As in the above example, **html** document consists of a **tree** of elements and text. Each element starts with a **tag** and ends with a **tag.** Tags have to be **nested** such that they are completely within each other without **overlapping**.
+
+```html
+<p>This <em>is <strong>correct</strong>.</em></p>
+<p>This is <em>very <strong>wrong</em>!</strong></p>
 ```
-bundle exec jekyll serve
-```
+![HTML Element](assets/images/element.png)
+>> Note: Tags in HTML are case-insensitive, i.e. they can be written in uppercase or lowercase. Best practice, however, is to write all tags in lowercase for consistency, readability, and other reasons.
 
-If you want to shorten this long command, you can put this code in a file such as jekyll.sh (on a Mac) and then simply type `. jekyll.sh` to build Jekyll.
-
-## Running the site in Docker
-
-You can also use Docker to directly build and run the site on your local machine. Just clone the repo and run the following from your working dir:
-```
-docker-compose build --no-cache && docker-compose up
-```
-The site should now be running at [http://localhost:4000/](http://localhost:4000/).
-
-This is perhaps the easiest way to see how your site would actually look.
-
-## Configure the sidebar
-
-There are several products in this theme. Each product uses a different sidebar. This is the essence of what makes this theme unique -- different sidebars for different product documentation. The idea is that when users are reading documentation for a specific product, the sidebar navigation should be specific to that product. (You can read more of my thoughts on why multiple sidebars are important in this [blog post](http://idratherbewriting.com/2016/03/23/release-of-documentation-theme-for-jekyll-50/).)
-
-The top navigation usually remains the same, because it allows users to navigate across products. But the sidebar navigation adapts to the product.
-
-In each page's frontmatter, you must specify the sidebar you want that page to use. Here's an example of the page frontmatter showing the sidebar property:
-
-<pre>
----
-title: Alerts
-tags: [formatting]
-keywords: notes, tips, cautions, warnings, admonitions
-last_updated: July 3, 2016
-summary: "You can insert notes, tips, warnings, and important alerts in your content. These notes are stored as shortcodes made available through the linksrefs.hmtl include."
-<span class="red">sidebar: mydoc_sidebar</span>
-permalink: mydoc_alerts
----
-</pre>
-
-The `sidebar: mydoc_sidebar` refers to the \_data/sidebars/mydoc_sidebar.yml file.
-
-Note that your sidebar can only have 2 levels (expand the **Tag archives** option to see an example of the second level). Given that each product has its own sidebar, this depth should be sufficient (it's really like 3 levels). Deeper nesting goes against usability recommendations.
-
-You can optionally turn off the sidebar on any page (e.g. landing pages). To turn off the sidebar for a page, you should set the page frontmatter tag as `hide_sidebar: true`.
-
-If you don't declare a sidebar, the `home_sidebar` file gets used as the default because this is the default specified in the config file:
-
-```yaml
--
-  scope:
-    path: ""
-    type: "pages"
-  values:
-    layout: "page"
-    comments: true
-    search: true
-    sidebar: home_sidebar
-    topnav: topnav
+***There are two important categories of elements in HTML.***
+- **Block Level Elements:**
+Block-level elements form a visible block on a page. A block-level element appears on a new line following the content that precedes it. Any content that follows a block-level element also appears on a new line. Block-level elements are usually structural elements on the page. For example, a block-level element might represent headings, paragraphs, lists, navigation menus, or footers. A block-level element wouldn't be nested inside an inline element, but it might be nested inside another block-level element.
+Example:
+```html
+      <p>paragraph 1</p><p>paragraph 2</p><p>paragraph 3</p><p>paragraph 4</p>
 ```
 
-If you want to set different sidebar defaults based on different folders for your pages, specify your defaults like this:
-
-```
--
-  scope:
-    path: "pages/mydoc"
-    type: "pages"
-  values:
-    layout: "page"
-    comments: true
-    search: true
-    sidebar: mydoc_sidebar
-    topnav: topnav
+- **Inline Elements:**
+These elements are contained within the block level elements that is it does not cause a new line to appear in the document.
+Example:
+```html   
+      <em>element 1</em> <em>element 2</em> <em>element 3</em>
 ```
 
-This would load the `mydoc_sidebar` for each file in **pages/mydoc**. You could set different defaults for different path scopes.
-
-For more detail on the sidebar, see [Sidebar navigation][mydoc_sidebar_navigation].
-
-## Top navigation
-
-The top navigation works just like the sidebar. You can specify which topnav data file should load by adding a `topnav` property in your page, like this:
-
-```yaml
-topnav: topnav
+## Whitespace in HTML
+The whitespace includes space characters as well as line breaks. You can have lots of whitespaces in your code but the HTML parser reduces space(s) or line breaks into a single space when rendering the HTML code. There is no reason to use more white spaces as it might affect the readability if it is not nicely formatted.
+```html 
+<p> this is properly formatted in terms of whitespace</p>
+    <p>this is 
+      very                    random and is not effective enough when 
+      reading 
+      the 
+      code. 
+    </p>
 ```
 
-Here the topnav refers to the `_data/topnav.yml` file.
+## Using Special Characters in HTML
+```<, > , " and &``` are special characters which are parts of HTML syntax, Therefore, when you need to use them in your html code you need to use the character equivalent as in the table below, to not have it interpreted as code.
 
-Because most topnav options will be the same, the `_config.yml` file specifies the topnav file as a default:
+| HTML Character  | Equivalent Character Reference |
+| ------------- | ------------- |
+|``` < ```| ``` &lt; ``` |
+| ``` > ```	| ``` &gt; ``` |
+| ``` " ``` | ``` &quot; ```|
+|``` ' ```	|``` &apos; ``` |
+|``` & ```	| ``` &amp; ``` |
 
-```yaml
--
-  scope:
-    path: ""
-    type: "pages"
-  values:
-    layout: "page"
-    comments: true
-    search: true
-    sidebar: home_sidebar
-    topnav: topnav
+## Comments in HTML
+
+It is a good idea to write comments wherever applicable. Comments are ignored by the browser and are invisible to the user.
+***To type comment in HTML:***
+```html 
+ <!-- comment asdsad asdasda -->
+ ```
+
+## Formatting elements in HTML
+
+- HTML is used to structure text within a page by adding headings, paragraphs, emphasizing words and more.
+
+- The structured content provides a better and enjoyable reading experience.
+
+- Headings are to be wrapped in a heading element ```<h1>```. There are 6 level of heading elements ```<h1>, <h2>, <h3>, <h4>,<h5> & <h6>```.
+
+- Paragraphs are wrapped in a ```<p>```
+
+```html 
+<h1>My heading</h1>
+<p>This is a paragraph.</p>
+ ```
+***Example of a Structure***
+![Example of a structure](assets/images/structure1.png)
+
+### Heading ###
+- Heading is commonly used in web pages to define the hierarchy of a web page. 
+- HTML offers 6 levels of heading ```<h1> <h2> <h3> <h4> <h5> <h6>```
+Example:
+```html
+      <h1>This is level 1 heading.</h1>
+      <h2>This is level 2 heading.</h2>
+      <h3>This is level 3 heading.</h3>
+      <h4>This is level 4 heading.</h4>
+      <h5>This is level 5 heading.</h5>
+      <h6>This is level 6 heading.</h6>
+```
+### Paragraphs ###
+- Pargraph is another common element that is used to write paragraphs in HTML document. 
+- It starts with the ```<p>``` tag and ends with ```</p>``` tag. 
+Example: 
+```html
+      <p> This is a paragraph. </p>
+      <p> This is another paragraph. </p>
 ```
 
-## Sidebar syntax
-
-The sidebar data file uses a specific YAML syntax that you must follow. Follow the sample pattern shown in the theme, specically looking at `mydoc_sidebar.yml` as an example: Here's a code sample showing all levels:
-
-```yaml
-entries:
-- title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
-  folders:
-  - title: Overview
-    output: web, pdf
-    folderitems:
-
-    - title: Get started
-      url: /index.html
-      output: web, pdf
-      type: homepage
-
-    - title: Introduction
-      url: /mydoc_introduction.html
-      output: web, pdf
-
-  - title: Release Notes
-    output: web, pdf
-    folderitems:
-
-    - title: 6.0 Release notes
-      url: /mydoc_release_notes_60.html
-      output: web, pdf
-
-    - title: 5.0 Release notes
-      url: /mydoc_release_notes_50.html
-      output: web, pdf
-
-  - title: Tag archives
-    output: web
-    folderitems:
-
-    - title: Tag archives overview
-      url: /mydoc_tag_archives_overview.html
-      output: web
-
-      subfolders:
-      - title: Tag archive pages
-        output: web
-        subfolderitems:
-
-        - title: Formatting pages
-          url: /tag_formatting.html
-          output: web
-
-        - title: Navigation pages
-          url: /tag_navigation.html
-          output: web
-
-        - title: Content types pages
-          url: /tag_content_types.html
-          output: web
+### Lists: Unordered
+```html 
+<ul>
+<li>Deepak</li>
+<li>Markku</li>
+<li>Pekka</li>
+<li>Juha</li>
+</ul>
 ```
 
-Each `folder` or `subfolder` must contain a `title` and `output` property. Each `folderitem` or `subfolderitem` must contain a `title`, `url`, and `output` property.
-
-The two outputs available are `web` and `pdf`. (Even if you aren't publishing PDF, you still need to specify `output: web`).
-
-The YAML syntax depends on exact spacing, so make sure you follow the pattern shown in the sample sidebars. See my [YAML tutorial](mydoc_yaml_tutorial) for more details about how YAML works.
-
-{% include note.html content="If you have just one character of spacing off, Jekyll won't build due to the YAML syntax error. You'll see an error message in your console that says \"Error ... did not find expected key while parsing a block mapping at line 22 column 5. Error: Run jekyll build --trace for more information.\" If you encounter this, it usually refers to incorrect indentation or spacing in the YAML file. See the example mydoc_sidebar.yml file to see where your formatting went wrong." %}
-
-Each level must have at least one topic before the next level starts. You can't have a second level that contains multiple third levels without having at least one standalone topic in the second level. If you need a hierarchy that has a folder that contains other folders and no loose topics, use a blank `-` item like this:
-
-```yaml
-entries:
-- title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
-  folders:
-  - title: Overview
-    output: web, pdf
-    folderitems:
-
-    -
-
-  - title: Release Notes
-    output: web, pdf
-    folderitems:
-
-    - title: 6.0 Release notes
-      url: /mydoc_release_notes_60.html
-      output: web, pdf
-
-    - title: 5.0 Release notes
-      url: /mydoc_release_notes_50.html
-      output: web, pdf
-
-  - title: Installation
-    output: web, pdf
-    folderitems:
-
-    - title: About Ruby, Gems, Bundler, etc.
-      url: /mydoc_about_ruby_gems_etc.html
-      output: web, pdf
-
-    - title: Install Jekyll on Mac
-      url: /mydoc_install_jekyll_on_mac.html
-      output: web, pdf
-
-    - title: Install Jekyll on Windows
-      url: /mydoc_install_jekyll_on_windows.html
-      output: web, pdf
+### Lists: Ordered
+```html 
+<ol>
+<li>Deepak</li>
+<li>Markku</li>
+<li>Pekka</li>
+<li>Juha</li>
+</ol>
 ```
 
-To accommodate the title page and table of contents in PDF outputs, each product sidebar must list these pages before any other:
+### Lists: Nested
+```html 
+<ol>
+<li>Chapter 1</li>
+<li>Chapter 2</li>
+<li>Chapter 3</li>
+<li>Chapter 4
+<ul>
+<li>Chapter 4.1</li>
+<li>Chapter 4.2</li>
+</ul>
+</li>
+</ol>
+``` 
+### Emphasizing Certain Words
 
-```yaml
-- title:
-  output: pdf
-  type: frontmatter
-  folderitems:
-  - title:
-    url: /titlepage
-    output: pdf
-    type: frontmatter
-  - title:
-    url: /tocpage
-    output: pdf
-    type: frontmatter
+It is sometimes needed to emphasize certain words within your text. HTML provides several semantic elements to mark up textual content with different effects.
+
+**Emphasis:** ``` <em>...</em> ``` This is <em> emphasized text.</em>
+
+**Bold:** ``` <b>...</b> ``` This is <b>bold text.</b>
+
+**Strong:** ``` <strong>...</strong> ``` This is <strong> strong text.</strong>
+
+**Italic:** ``` <i>...</i> ``` This is <i>italicized text </i>.
+
+**Underline:** ``` <u>...</u> ``` This is <u>underlined text.</u>
+
+**Mark:** ``` <mark>...</mark> ``` This is <mark>marked text.</mark>
+
+**Sub:** ``` <sub>...</sub> ``` This is <sub>subscript text.</sub>
+
+**Sup:** ``` <sup>...</sup> ``` This is <sup>superscript text.</sup>
+
+**Del:** ``` <del>...</del> ``` This is <del>deleted text.</del>
+
+**Ins:** ``` <ins>...</ins> ``` This is <ins>inserted text.</ins>
+
+### Images in HTML
+
+The ```img``` element and its src attribute are used to embed an image in HTML.
+```html 
+<img src="/images/myimage.jpg" alt="" width="100“ height="150"> 
+<img src="https://raw.githubusercontent.com/dipaish/www2020/master/docs/images/header.png " width="680px">
+<img src="images/missing.jpg" alt="Photo info"/>
+<img src="images/missing.jpg" alt="Photo info" height="200px" width="200px"/>
+```  
+**Image Sizes**
+You may use width and height attribute to size image however it is recommended to use photo editing software to determine the size of images to produce a better result. Resizing images properly will download faster when users view your pages.
+
+***Image size can also be specified as a windows percentage.***
+
+```html 
+<img src="https://raw.githubusercontent.com/dipaish/www2020/master/docs/images/header.png " alt="Photo info" width="30%"/>
 ```
 
-Leave the output as `output: pdf` for these frontmatter pages so that they don't appear in the web output.
+**Alternative Text**
+The **alt** attribute is a textual description of the image that is displayed to the user when am image is not found or takes a long time to render due to slow internet connection. It is also handy for visually impaired user who is using a screen reader to read the web.
 
-For more detail on the sidebar, see [Sidebar navigation][mydoc_sidebar_navigation] and [YAML tutorial][mydoc_yaml_tutorial].
-
-## Comments
-
-The theme integrates [Commento.io](https://commento.io/) for comments below pages and posts. (This commenting service doesn't inject controversial tracking ads like Disqus does.) You will need to Commento.io account + plan ($5/month) to authorize Commento with your domain (no other configuration should be required). If you don't want comments, in the \_config.yml file, change the `comments: true` properties (under `defaults`) to `comments: false` in every instance. Then in the commento.html include file (inside \_includes), the `{% raw %}{% unless page.comments == false %} ... {% endunless %}{% endraw %}` logic will not insert the Commentio form.
-
-## Relative links and offline viewing
-
-This theme uses relative links throughout so that you can view the site offline and not worry about which server or directory you're hosting it. It's common with tech docs to push content to an internal server for review prior to pushing the content to an external server for publication. Because of the need for seamless transferrence from one host to another, the site has to use relative links.
-
-To view pages locally on your machine (without the Jekyll preview server), they need to have the `.html` extension. The `permalink` property in the page's frontmatter (without surrounding slashes) is what pushes the files into the root directory when the site builds.
-
-## Page frontmatter
-
-When you write pages, include these same frontmatter properties with each page:
-
-```yaml
----
-title: "Some title"
-tags: [sample1, sample2]
-keywords: keyword1, keyword2, keyword3
-last_updated: Month day, year
-summary: "optional summary here"
-sidebar: sidebarname
-permalink: filename.html
----
+```html 
+<img src="images/img1.jpg" alt="info about image">
 ```
 
-(You will customize the values for each of these properties, of course.)
+**Image Titles**
+The ***title*** attribute in image provides a tooltip on mouse over.It is however not recommended due to various accessibility problems.
 
-For titles, surrounding the title in quotes is optional, but if you have a colon in the title, you must surround the title with quotation marks. If you have a quotation mark inside the title, escape it first with a backlash `\`.
-
-Values for `keywords` get populated into the metadata of the page for SEO.
-
-Values for `tags` must be defined in your \_data/tags.yml list. You also need a corresponding tag file inside the tags folder pages/tags/ that follows the same pattern as the other tag files shown in the tags folder. (Jekyll won't auto-create these tag files.)
-
-If you don't want the mini-TOC to show on a page (such as for the homepage or landing pages), add `toc: false` in the frontmatter.
-
-The `permalink` value should be the same as your filename and include the ".html" file extension.
-
-For more detail, see [Pages][mydoc_pages].
-
-## Where to store your documentation topics
-
-You can store your files for each product inside subfolders following the pattern shown in the theme. For example, product1, product2, etc, can be stored in their own subfolders inside the \_pages directory. Inside \_pages, you can store your topics inside sub-subfolders or sub-sub-folders to your heart's content. When Jekyll builds your site, it will pull the topics into the root directory and use the permalink for the URL.
-
-Note that product1, product2, and mydoc are all just sample content to demonstrate how to add multiple products into the theme. You can freely delete that content.
-
-For more information, see [Pages][mydoc_pages] and [Posts][mydoc_posts].
-
-## Configure the top navigation
-
-The top navigation bar's menu items are set through the \_data/topnav.yml file. Use the top navigation bar to provide links for navigating from one product to another, or to navigate to external resources.
-
-For external URLs, use `external_url` in the item property, as shown in the example topnav.yml file. For internal links, use `url` the same was you do in the sidebar data files.
-
-Note that the topnav has two sections: `topnav` and `topnav_dropdowns`. The topnav section contains single links, while the `topnav_dropdowns` section contains dropdown menus. The two sections are independent of each other.
-
-## Generating PDF
-
-If you want to generate PDF, you'll need a license for [Prince XML](http://www.princexml.com/). You will also need to [install Prince](http://www.princexml.com/doc/installing/).  You can generate PDFs by product (but not for every product on the site combined together into one massive PDF). Prince will work even without a license, but it will imprint a small Prince image on the first page, and you're supposed to buy the license to use it.
-
-If you're on Windows, install [Git Bash client](https://git-for-windows.github.io/) rather than using the default Windows command prompt.
-
-Open up the css/printstyles.css file and customize the email address (`youremail@domain.com`) that is listed there. This email address appears in the bottom left footer of the PDF output. You'll also need to create a PDF configuration file following the examples shown in the pdfconfigs folder, and also customize some build scripts following the same pattern shown in the root: pdf-product1.sh
-
-See the section on [Generating PDFs][mydoc_generating_pdfs] for more details about setting the theme up for this output.
-
-## Blogs / News
-
-For blog posts, create your markdown files in the \_posts folder following the sample formats. Post file names always begin with the date (YYYY-MM-DD-title).
-
-The news/news.html file displays the posts, and the news_archive.html file shows a yearly history of posts. In documentation, you might use the news to highlight product features outside of your documentation, or to provide release notes and other updates.
-
-See [Posts][mydoc_posts] for more information.
-
-## Markdown
-
-This theme uses [kramdown markdown](http://kramdown.gettalong.org/). kramdown is similar to Github-flavored Markdown, except that when you have text that intercepts list items, the spacing of the intercepting text must align with the spacing of the first character after the space of a numbered list item. Basically, with your list item numbering, use two spaces after the dot in the number, like this:
-
-```
-1.  First item
-2.  Second item
-3.  Third item
+```html 
+  <img src="images/img1.jpg" alt="info about image" title="more info">
+``` 
+**Image Captions in HTML5**
+You can use ```<figure> and <figurecatpion>``` elements.
+```html 
+    <figure>
+      <img src="images/img2.jpg" alt="image 2;">
+    <figcaption>Image caption</figcaption>
+    </figure>
 ```
 
-When you want to insert paragraphs, notes, code snippets, or other matter in between the list items, use four spaces to indent. The four spaces will line up with the first letter of the list item (the <b>F</b>irst or <b>S</b>econd or <b>T</b>hird).
+**Image within a paragraph**
+As per need, you may align your image either on the left or right side of your paragraph. 
+- ***To align image on the left side of a paragraph***
+```html 
+  <p><img src="assets/images/Opensource.svg.png" alt="opensource image" style="float:left; margin-right: 10px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quae eveniet sequi, ex provident obcaecati corporis et distinctio dolore voluptatum architecto, deserunt explicabo soluta harum veritatis quo adipisci expedita excepturi officiis nulla qui voluptatibus? Libero quis at iste ex aspernatur eaque saepe, 
+        minus asperiores distinctio ratione repellat excepturi incidunt iusto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quae eveniet sequi, ex provident obcaecati corporis et distinctio dolore voluptatum architecto, deserunt explicabo soluta harum veritatis quo adipisci expedita excepturi officiis nulla qui voluptatibus? Libero quis at iste ex aspernatur eaque saepe, 
+        minus asperiores distinctio ratione repellat excepturi incidunt iusto?</p>
+``` 
+
+***To align image on the right side of a paragraph*** 
+```html 
+  <p><img src="assets/images/Opensource.svg.png" alt="opensource image" style="float:right; margin-left: 10px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quae eveniet sequi, ex provident obcaecati corporis et distinctio dolore voluptatum architecto, deserunt explicabo soluta harum veritatis quo adipisci expedita excepturi officiis nulla qui voluptatibus? Libero quis at iste ex aspernatur eaque saepe, 
+        minus asperiores distinctio ratione repellat excepturi incidunt iusto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quae eveniet sequi, ex provident obcaecati corporis et distinctio dolore voluptatum architecto, deserunt explicabo soluta harum veritatis quo adipisci expedita excepturi officiis nulla qui voluptatibus? Libero quis at iste ex aspernatur eaque saepe, 
+        minus asperiores distinctio ratione repellat excepturi incidunt iusto?</p>
+``` 
+
+***Understanding Image URLS & Important Notes***
+- The **src** attribute in img tag locates the image file
+- There are two types of URLs: **Absolute & Relative**
+    - **Absolute:** The exact location of the image that normally begings with http://....
+    - **Relative:** To better organize, images are stored within a specific folder. In such cases, you can use relative location such as images/image1.jpg
+- Search engines also read image filenames and count them towards SEO. Therefore, it is wise to use a descriptive image filename; apple.jpg is better than img135.png.
+- Make sure, you own copyrights before displaying an image in your webpage.
+- Images garner attention and draw emotion therfore use images wisely as people pay more attention to image than text.
+- Try to limit larger size images as much as possible so that they are not slowing down your website.
+
+### Links
+
+- You get to find a lot of links in a web page. 
+- Links are used to navigate between different pages or sections of a web page.
+- Links can point to HTML files, text documents, images, video or audio files, or other web pages. 
+- You create a basic link by using ```<a>``` element with the ```href``` attribute.
+- You can use the **target** attribute to specify how the link should be opened such as in the same tab or in a new tab. 
+
+***Examples***
+```
+<!-- Linking to HAMK Page, opens in the same tab -->
+
+<a href="https://www.hamk.fi/">HAMK</a>
+
+<!--Image as a link, on clciking an image, it takes to the HAMK page. -- >
+<a href="https://www.hamk.fi/">
+  <img src="hamk.png" alt="HAMK homepage" />
+</a>
+
+<!-- _blank : opens the link in a new tab -->
+<a href="https://www.hamk.fi/" target="_blank">HAMK</a>
+ 
+```
+
+## Exercise 1:Text Formatting and page content
+
+Now, let's roll up our sleeves and put our knowledge into action. 
+
+**Head over to this [link](https://gist.github.com/dipaish/82f0a116e4e4ad158e0505e377ca95de#file-exercise1-md) and follow the instructions in the document to complete the assigned tasks.**
+
+
+## Debugging HTML 
+It is very likely that you commit errors when coding. Some of your code won't work at all or works a bit differently than what you have expected. HTML is not as complicated as other programming languages like Python or Php.The way browsers parse html document is more permissive than other languages. For instance, missing a semicolon in some programming language will mess up thing whereas in html, even if you write the elements incorrectly its going to product certain output.
+
+When something is wrong in code, there are mainly two types of errors ***Syntax errors & Logic Errors*** . 
+
+  - **Syntax error** may cause the program not to run and can be easily fixed by as long as you are familiar with the language's syntax and know what the error messages mean.
+  - **Logic Errors** is when the sytax is correct but the program is not running as intended. It is difficult to fix this kind of errors.
+
+>> Note: HTML is parsed permissively because when the web was first created, it was decided that allowing people to get their content published was more important than making sure the syntax was absolutely correct. The web would probably not be as popular as it is today, if it had been more strict from the very beginning.
+
+## HTML Validation
+The HTML code below includes errors. As in  this case, since the html code is not very long, one can search through the lines and correct errors. **But how to check errors when the HTML document is complex and very long?**
+
+- The best option is to use **Markup Validation Services** which is created and maintained by **W3C** (the organization that looks after the specifications that define HTML, CSS, and other web technologies.)
+- The **HTML validator** will take your HTML document as an input, process it and provides you a report that tells what is wrong with your HTML.
+- You have 3 options to validate your html document 
+  - **Validate by URL**: use the link of your page that you want to validate. 
+  - **Validate by File Upload**: Upload the html file that you want validate. 
+  - **Validate by Direct Input**: Directly input the html code that you want to validate. 
+
+[Markup Validation Service](https://validator.w3.org/) 
+
+![HTML Validator ](assets/images/validator.png)
+
+***Lets look into the following html code and try to validate the document by Direct Input***
+- Step 1: Get to Validator Page: https://validator.w3.org/
+- Step 2: Select Validate by Direct Input
+- Step 3: Copy and paste the following HTML code in the input box.
+- Step 4: Click Check. 
+- Step 5: Check the results and fix warnings and errors. 
+
+```html 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>HTML debugging examples</title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>HTML debugging examples</h1>
+
+    <p>What causes errors in HTML?
+
+    <ul>
+      <li>Unclosed elements: If an element is <strong>not closed properly, then its effect can spread to areas you didn't intend
+
+      <li>Badly nested elements: Nesting elements properly is also very important for code behaving correctly. <strong>strong <em>strong emphasised?</strong> what is this?</em>
+
+      <li>Unclosed attributes: Another common source of HTML problems. Let's look at an example: <a href="https://www.mozilla.org/>link to Mozilla homepage</a>
+    </ul>
+  </body>
+</html>
+```
+## Inspect Element
+
+Inspect element is one of the important feature used by web developers that is available in most of the modern browsers such as Google Chrome or Firefox. It allows you to: 
+- test your HTML or CSS code and  see the changes in real time
+- check the if the page contains any errors or bugs on a web page.
+- modify or tweak page elements without doing the permanent change to your code.
+
+![Inspect Element](assets/images/inspect.png)
+
+[Read More - Chrome DevTools](https://developer.chrome.com/docs/devtools/overview)
+
+## Multimedia in Web pages
+
+You have already embedded images in your web page. You can embed different types of multimedia such as a video and audio content, vector graphics and responsive images.
+
+The ```<video>``` element allows you to embed a video.
+
+```html
+ <video src="images/test.mp4" controls width="400" height="250">
+    <p>Your browser doesn't support HTML5 video.
+       Here is a <a href="assets/video/test.mp4">link to the video</a></p>
+  </video>
+```
+
+<video src="assets/video/test.mp4" controls width="400" height="250">
+    <p>Your browser doesn't support HTML5 video.
+       Here is a <a href="assets/video/test.mp4">link to the video</a></p>
+  </video>
+
+The other options you can use are ```autoplay, loop, muted, preload="auto" ```.
+
+***Example***
+
+```html 
+<video src="assets/video/test.mp4" controls width="400" height="250" autoplay loop muted>
+  <p>Your browser doesn't support HTML5 video.
+     Here is a <a href="assets/video/test.mp4">link to the video</a></p>
+</video>  
+```
+
+***The ```<audio>``` element allows to add an audio to your webpage.***
+
+```html
+<audio controls>
+    <source src="assets/audio/file.mp3" type="audio/mp3">
+    <p>Your browser doesn't support HTML5 audio. </p>
+  </audio>
+```
+<audio controls>
+    <source src="assets/audio/file.mp3" type="audio/mp3">
+    <p>Your browser doesn't support HTML5 audio. </p>
+  </audio>
+
+## Embedding Technologies
 
 ```
-1.  First item
-
-    ```
-    alert("hello");
-    ```
-
-2.  Second item
-
-    Some pig!
-
-3.  Third item
+<iframe>
 ```
 
-See the topics under "Formatting" in the sidebar for more information.
+The iframe element allows embedding different contents such as a <b>Youtube video or a Google Map</b>. It is very easy to embed third-party content however you should embed only if it is really important. When embedding content, please make sure that:
 
-## Automated links
+- The content is secure enough to share
+- Be aware of intellectual property issues.
+- Obey the licence terms of the content if the content is licensed.
 
-If you want to use an automated system for managing links, see [Automated Links][mydoc_hyperlinks.html#automatedlinks]. This approach automatically creates a list of Markdown references to simplify linking.
+**Example: Embedding a youtube video into your web page**
 
-## Other instructions
+1. First, go to YouTube and find a video you like. Below the video, you'll find a **Share button**. Click the share button to display the sharing options.
 
-The content here is just a getting started guide only. For other details in working with the theme, see the various sections in the sidebar.
+2. Select the Embed button and you'll be given some ```<iframe>``` code. Copy the code
+
+3.Insert the copied code into your HTML document.
+
+```
+<embed>
+```
+
+It allows you to embed external content such as a video.
+
+***Example***
+```html 
+<embed type="video/webm"
+       src="/media/video.mp4"
+       width="250"
+       height="200" title="title of the video">
+```
+
+```
+<object>
+```
+
+It allows you to represent an external resource that is treated as an image or as a resource that is handled by a plugin.
+```html 
+<object type="application/pdf"
+    data="/examples/file.pdf"
+    width="250"
+    height="200">
+</object>
+```
+## Some More elements for formatting text
+- Description list
+- Quotations:Blockquotes & Inline Quotations
+- Abbreviations
+- Superscript & Subscript
+- Marking up computer code in HTML
+
+***Description list***
+
+You may use ```<dl>``` elemet to create a **description list**. With the description list, you can mark up set of items and their descriptions such as questions and answers or terms and definitions.
+
+```html
+  <dl>
+    <dt>Description Title</dt>
+    <dd>Here you can have your description text.</dd>
+    <dt>Title 1</dt>
+    <dd>Description text.</dd>
+  </dl>
+```
+***Quotations: Blockquotes, Inline Quotations & Citations***
+
+There are options in HTML to mark up quotations.
+
+**Example of a blockquote**
+
+```html
+<blockquote>Hello World</blockquote>
+```
+<blockquote>Hello World</blockquote>
+
+**Example of inline quotations**
+
+For inline quotations, you can use the ```<q>``` element. It is intended for short quotations which does not require paragraph breaks.
+
+```<q>One more quotation</q>```
+<q>One more quotation</q>
+**Example of Abbreviations**
+
+In-order to wrap around an acronym, you can use the ```<abbr>``` element.
+
+```html
+    <p> <abbr title="Hämeen ammattikorkeakoulu">HAMK</abbr> is one of the best UAS in Finland.</p>
+```
+<p> <abbr title="Hämeen ammattikorkeakoulu">HAMK</abbr> is one of the best UAS in Finland.</p>
+
+**Marking up computer code**
+
+To mark up computer code in HTML you have multiple elements in html.
+
+```html
+    <pre><code>var para = document.querySelector('p');
+
+      para.onclick = function() {
+        alert('Owww, stop poking me!');
+      }</code></pre>
+      
+      <p>You shouldn't use presentational elements like <code>&lt;font&gt;</code> and <code>&lt;center&gt;</code>.</p>
+      
+      <p>In the above JavaScript example, <var>para</var> represents a paragraph element.</p>
+      
+      <p>Select all the text with <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd>.</p>
+      
+      <pre>$ <kbd>ping mozilla.org</kbd>
+      <samp>PING mozilla.org (63.245.215.20): 56 data bytes
+      64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
+```
+
+## Exercise 3
+It is now time to apply what you have learnt, please find the exercise at the link below: 
+***[Exercise 3](https://gist.github.com/dipaish/cfac8164725564c7ad2ed69ee1baa347)***
+
+## [Table](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
+
+## [Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form)
+
+## [HTML Layout](https://dipaish.github.io/www23/layout)
+
+## References: 
+- Mdn Web Docs 
+
+>> To learn more
+
+
 
 {% include links.html %}
